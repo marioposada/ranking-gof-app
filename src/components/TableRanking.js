@@ -50,14 +50,14 @@ export default function TableRanking() {
       let res = await fetch(url, options),
         json = await res.json();
 
-      json.results.rankings.forEach(async el => {
+      json.results.rankings.forEach( el => {
         let golfer = {
           thisweek: el.position,
           movement: el.movement,
-          name: el.name,
-          average: el.avg_points,
-          tpoint: el.total_point,
+          name: el.player_name,
           eplayed: el.num_events,
+          average: el.avg_points,
+          tpoint: el.total_points,
           plost: el.points_lost,
           pgained: el.points_gained,
         };
@@ -93,14 +93,14 @@ export default function TableRanking() {
           <Tbody>
             {golfers.map(el => (
               <Rows
-                thisweek={el.position}
+                thisweek={el.thisweek}
                 movement={el.movement}
                 name={el.name}
-                average={el.avg_points}
-                tpoint={el.total_point}
-                eplayed={el.num_events}
-                plost={el.points_lost}
-                pgained={el.points_gained}
+                average={el.average}
+                tpoint={el.tpoint}
+                eplayed={el.eplayed}
+                plost={el.plost}
+                pgained={el.pgained}
               />
             ))}
           </Tbody>
