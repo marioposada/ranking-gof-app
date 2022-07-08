@@ -13,9 +13,14 @@ function App() {
         minH="100%"
         minW="100vw"
         bgAttachment="fixed"
+        display="flex"
+        justify-content="center"
+        align-items="center"
+        flexDirection={"column"}
+        
+
       >
         <Title />
-
         <TableRanking />
       </Container>
     </ChakraProvider>

@@ -22,14 +22,14 @@ function Rows({
 }) {
   return (
     <Tr>
-      <Td>{thisweek}</Td>
-      <Td>{movement}</Td>
-      <Td>{name}</Td>
-      <Td>{average}</Td>
-      <Td>{tpoint}</Td>
-      <Td>{eplayed}</Td>
-      <Td>{plost}</Td>
-      <Td>{pgained}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{thisweek}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{movement}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{name}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{average}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{tpoint}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{eplayed}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{plost}</Td>
+      <Td border='1px' borderColor='rgb(71, 71, 70)'>{pgained}</Td>
     </Tr>
   );
 }
@@ -50,7 +50,7 @@ export default function TableRanking() {
       let res = await fetch(url, options),
         json = await res.json();
 
-      json.results.rankings.forEach( el => {
+      json.results.rankings.forEach(el => {
         let golfer = {
           thisweek: el.position,
           movement: el.movement,
@@ -75,19 +75,33 @@ export default function TableRanking() {
   }, []);
 
   return (
-    <Box maxW={''}>
+    <Box maxW={''}
+    display="flex"
+    alignSelf={"center"}
+    
+    >
       <TableContainer>
-        <Table variant="sstriped" colorScheme="teal">
+        <Table
+          variant="sstriped"
+          colorScheme="teal"
+          // maxWidth={'70vw'}
+          alignContent={'center'}
+          size="sm"
+          bg=" rgba(0,0,0,0.8)"
+          color={'white'}
+          w={[300, 400, 500]}
+         
+        >
           <Thead>
             <Tr>
-              <Th>This Week</Th>
-              <Th>movement</Th>
-              <Th>name</Th>
-              <Th>Average point</Th>
-              <Th>total point</Th>
-              <Th>events played</Th>
-              <Th>point lost</Th>
-              <Th>point gained</Th>
+              <Th bg="black" h={"40px"} border='1px' borderColor='rgb(71, 71, 70)'>This Week</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>movement</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>name</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>Average point</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>total point</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>events played</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>point lost</Th>
+              <Th bg="black" border='1px' borderColor='rgb(71, 71, 70)'>point gained</Th>
             </Tr>
           </Thead>
           <Tbody>
